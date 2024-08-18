@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/cast_ic_notification_1"
+            android:title="Incio"
+            android:checked="false"
+            android:onClick="onOptionsItemSelected"/>
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/cast_ic_notification_1"
+            android:title="Perfi"
+            android:checked="false"
+            android:onClick="onOptionsItemSelected"/>
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/cast_ic_notification_1"
+            android:title="Agregar"
+            android:checked="false"
+            android:onClick="onOptionsItemSelected"/>
+    </group>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/cast_ic_notification_1"
+        android:title="Logout"
+        android:onClick="onOptionsItemSelected"
+        app:iconTint="@color/white"/>
+        />
+
+    </menu>
+
