@@ -29,4 +29,16 @@ interface AuthApiService {
 
     @GET("GetEmpleadosConRol2")
     fun getUsuariosTienda(): Call<ResponseBody>
+
+    @GET("ProduccionV2/listar-producciones")
+    fun getProduccion(): Call<ResponseBody>
+
+    @PUT("ProduccionV2/cancelar-produccion/{id}")
+    fun putCancelarProduccion(@Path("id") id: String): Call<ResponseBody>
+
+    @PUT("ProduccionV2/iniciar-produccion/{id}")
+    fun putIniciarProduccion(@Path("id") id: String): Call<ResponseBody>
+
+    @PUT("ProduccionV2/completar-produccion/{id}")
+    fun putCompletarProduccion(@Path("id") id: String): Call<ResponseBody>
 }

@@ -15,24 +15,39 @@ class DetallesEmpleadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalles_empleado)
 
+        // Obtener referencias a los TextViews
         val nombreTextView = findViewById<TextView>(R.id.tvNombre)
         val puestoTextView = findViewById<TextView>(R.id.tvPuesto)
+        val usuarioTextView = findViewById<TextView>(R.id.tvUsuario)
+        val telefonoTextView = findViewById<TextView>(R.id.tvTelefono)
+        val correoTextView = findViewById<TextView>(R.id.tvCorreo)
+        val generoTextView = findViewById<TextView>(R.id.tvGenero)
 
         // Obtener los extras pasados desde la actividad anterior
         val nombre = intent.getStringExtra("nombre")
         val puesto = intent.getStringExtra("puesto")
+        val usuario = intent.getStringExtra("usuario")
+        val telefono = intent.getStringExtra("telefono")
+        val correo = intent.getStringExtra("correo")
+        val genero = intent.getStringExtra("genero")
 
+        // Logs para depuración
         Log.d("DetallesEmpleadoActivity", "Nombre recibido: $nombre")
-        Log.d("DetallesEmpleadoActivity", "Descripción recibida: $puesto")
+        Log.d("DetallesEmpleadoActivity", "Puesto recibido: $puesto")
+        Log.d("DetallesEmpleadoActivity", "Usuario recibido: $usuario")
+        Log.d("DetallesEmpleadoActivity", "Teléfono recibido: $telefono")
+        Log.d("DetallesEmpleadoActivity", "Correo recibido: $correo")
+        Log.d("DetallesEmpleadoActivity", "Género recibido: $genero")
 
-        // Verificar si los valores no son nulos antes de asignarlos a los TextViews
-        if (nombre != null) {
-            nombreTextView.text = nombre
-            puestoTextView.text = puesto
-        } else {
-            nombreTextView.text = "Nombre no disponible"
-            puestoTextView.text = "Descripción no disponible"
-        }
+        // Asignar los valores a los TextViews
+        nombreTextView.text = nombre ?: "Nombre no disponible"
+        puestoTextView.text = puesto ?: "Puesto no disponible"
+        usuarioTextView.text = usuario ?: "Usuario no disponible"
+        telefonoTextView.text = telefono ?: "Teléfono no disponible"
+        correoTextView.text = correo ?: "Correo no disponible"
+        generoTextView.text = genero ?: "Género no disponible"
+
+        // Configurar el botón "Regresar"
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
         btnRegresar.setOnClickListener {
             finish()

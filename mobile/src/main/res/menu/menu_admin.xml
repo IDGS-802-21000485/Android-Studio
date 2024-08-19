@@ -16,6 +16,12 @@
             android:title="Empleados"
             android:checked="false"
             android:onClick="onOptionsItemSelected"/>
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/baseline_person_24"
+            android:title="Produccion"
+            android:checked="false"
+            android:onClick="onOptionsItemSelected"/>
     </group>
     <item
         android:id="@+id/logout"

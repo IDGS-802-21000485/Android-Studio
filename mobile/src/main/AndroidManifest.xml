@@ -39,6 +39,12 @@
             android:name=".ui.DetallesEmpleadoActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.ProduccionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DetallesProduccionActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

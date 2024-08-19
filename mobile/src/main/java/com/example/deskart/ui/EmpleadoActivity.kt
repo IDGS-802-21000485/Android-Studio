@@ -56,12 +56,22 @@ class EmpleadoActivity : AppCompatActivity() {
 
                         nombre.text = producto.nombre + " " + producto.primerApellido + " " + producto.segundoApellido
                         puesto.text = puestoS
+                        var g = ""
+                        if (producto.sexo == "1"){
+                            g = "Hombre"
+                        }else{
+                            g = "Mujer"
+                        }
 
                         // En EmpleadoActivity.kt
                         verDetalles.setOnClickListener {
                             val intent = Intent(this@EmpleadoActivity, DetallesEmpleadoActivity::class.java)
                             intent.putExtra("nombre", nombre.text)
                             intent.putExtra("puesto", puesto.text) // Asegúrate de pasar la descripción también
+                            intent.putExtra("usuario", producto.nombreUsuario)
+                            intent.putExtra("telefono", producto.telefono)
+                            intent.putExtra("correo", producto.email)
+                            intent.putExtra("genero", g)
                             startActivity(intent)
                         }
 
@@ -99,6 +109,12 @@ class EmpleadoActivity : AppCompatActivity() {
             R.id.item2 -> {
                 startActivity(Intent(this, EmpleadoActivity::class.java))
                 Log.e("EmpleadoActivity", "Navegando a EmpleadoActivity")
+                return true
+            }
+            R.id.item3-> {
+                // Abrir InicioActivity
+                startActivity(Intent(this, ProduccionActivity::class.java))
+                Log.e("ProduccionActivity", "Context: ${this}")
                 return true
             }
             R.id.logout -> {

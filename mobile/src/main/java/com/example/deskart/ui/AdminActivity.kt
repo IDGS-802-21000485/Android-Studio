@@ -60,6 +60,12 @@ class AdminActivity : AppCompatActivity() {
                 Log.e("MainActivity", "Context: ${this}")
                 return true
             }
+            R.id.item3-> {
+                // Abrir InicioActivity
+                startActivity(Intent(this, ProduccionActivity::class.java))
+                Log.e("ProduccionActivity", "Context: ${this}")
+                return true
+            }
             R.id.logout -> {
                 Toast.makeText(this, "Cerrando sesión", Toast.LENGTH_SHORT).show()
                 Log.e("MainActivity", "Context: ${this}")
