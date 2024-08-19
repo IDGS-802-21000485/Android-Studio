@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.deskart.MainActivity
 import com.example.deskart.R
 import com.example.deskart.apiservice.RetrofitClient
+import com.example.deskart.config.SessionManager
 import com.example.deskart.models.ProductoModel
 import com.example.deskart.ui.Productos.TarjetaAdapter
 import com.google.gson.Gson
@@ -27,6 +28,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AdminActivity : AppCompatActivity() {
+    private lateinit var sessionManager: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.acticity_admin)
@@ -34,9 +37,15 @@ class AdminActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_admin, menu)
+        val role = sessionManager.getUserTien()?.rol// Recupera el rol del usuario
+        if (role == 1) {
+            menuInflater.inflate(R.menu.menu_admin, menu)
+        } else {
+            menuInflater.inflate(R.menu.menu, menu)
+        }
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item1 -> {

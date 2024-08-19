@@ -31,6 +31,7 @@ import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.deskart.models.UsuarioTiendaModel
 import com.example.deskart.ui.AdminActivity
 
 class MainActivity : AppCompatActivity() {
@@ -113,8 +114,8 @@ class MainActivity : AppCompatActivity() {
                     // Si el usuario es encontrado en la segunda API
                     val stringJson = response.body()?.string()
                     val gson = Gson()
-                    val usuario = gson.fromJson(stringJson, UsuarioModel::class.java)
-                    sessionManager.saveUser(usuario)
+                    val usuario = gson.fromJson(stringJson, UsuarioTiendaModel::class.java)
+                    sessionManager.saveUserTien(usuario)
                     Toast.makeText(contexto, "Bienvenido ${usuario.nombre}", Toast.LENGTH_SHORT).show()
                     val intent = Intent(contexto, AdminActivity::class.java)
                     startActivity(intent)

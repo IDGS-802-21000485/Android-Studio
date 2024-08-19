@@ -27,4 +27,6 @@ interface AuthApiService {
     @POST("Carrito/AgregarCarrito")  // Asegúrate de que esta ruta coincida con la ruta correcta de tu API
     fun postCarrito(@Body params: CarritoModel): Call<ResponseBody>
 
+    @GET("GetEmpleadosConRol2")
+    fun getUsuariosTienda(): Call<ResponseBody>
 }

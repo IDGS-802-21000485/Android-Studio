@@ -196,7 +196,12 @@ class ModificarCuenta : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        val role = sessionManager.getUserTien()?.rol// Recupera el rol del usuario
+        if (role == 1) {
+            menuInflater.inflate(R.menu.menu_admin, menu)
+        } else {
+            menuInflater.inflate(R.menu.menu, menu)
+        }
         return true
     }
 
